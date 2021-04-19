@@ -1,5 +1,8 @@
 import Foundation
 
-public func length<A>(_ list: NonEmptyList<A>) -> Int {
-    1 + length(list.tail)
+public extension NonEmptyList {
+    var length: UInt {
+        1 + self.tail.length
+    }
 }
+

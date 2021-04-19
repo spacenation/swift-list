@@ -14,6 +14,10 @@ public extension List {
         self = .nonEmpty(.init(element))
     }
     
+    @inlinable init(_ head: Element, _ tail: List<Element> = .empty) {
+        self = .nonEmpty(.init(head, tail))
+    }
+    
     @inlinable init<S>(_ s: S) where Element == S.Element, S : Sequence {
         self = .empty
         for element in s {
@@ -21,7 +25,7 @@ public extension List {
         }
     }
     
-    @inlinable init(repeating repeatedValue: Element, count: Int) {
+    @inlinable init(repeating repeatedValue: Element, count: UInt) {
         self = .empty
         for _ in (0..<count) {
             self = self.append(.nonEmpty(.init(repeatedValue)))

@@ -12,14 +12,5 @@ extension List: Collection {
     }
     
     public var startIndex: Int { 0 }
-    public var endIndex: Int { length(self) }
-}
-
-public func length<A>(_ list: List<A>) -> Int {
-    switch list {
-    case .empty:
-        return 0
-    case let .nonEmpty(list):
-        return length(list)
-    }
+    public var endIndex: Int { Int(self.length) }
 }
