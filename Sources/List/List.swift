@@ -10,25 +10,24 @@ public extension List {
         self = .empty
     }
     
-    @inlinable init(_ element: Element) {
-        self = .nonEmpty(.init(element))
-    }
-    
-    @inlinable init(_ head: Element, _ tail: List<Element> = .empty) {
-        self = .nonEmpty(.init(head, tail))
+    @inlinable init(head: Element, tail: List<Element> = .empty) {
+        self = .nonEmpty(.init(head: head, tail: tail))
     }
     
     @inlinable init<S>(_ s: S) where Element == S.Element, S : Sequence {
         self = .empty
+        
         for element in s {
-            self = self.append(.nonEmpty(.init(element)))
+            self = self.append(.nonEmpty(.init(head: element)))
         }
     }
     
     @inlinable init(repeating repeatedValue: Element, count: UInt) {
-        self = .empty
-        for _ in (0..<count) {
-            self = self.append(.nonEmpty(.init(repeatedValue)))
+        switch count {
+        case 0:
+            self = .empty
+        default:
+            self = .nonEmpty(.init(head: repeatedValue, tail: .init(repeating: repeatedValue, count: count - 1)))
         }
     }
 }

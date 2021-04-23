@@ -11,7 +11,7 @@ public extension List {
             return .empty
         case .nonEmpty:
             let (zs, bs) = self.split(at: n)
-            return List<List<Element>>(zs, bs.split(every: n))
+            return List<List<Element>>(head: zs, tail: bs.split(every: n))
         }
     }
 }

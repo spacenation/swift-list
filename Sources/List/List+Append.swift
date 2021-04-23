@@ -6,7 +6,7 @@ extension List {
         case (.empty, let other):
             return other
         case (let .nonEmpty(list), let other):
-            return .nonEmpty(.init(list.head, list.tail.append(other)))
+            return .nonEmpty(.init(head: list.head, tail: list.tail.append(other)))
         }
     }
 }
