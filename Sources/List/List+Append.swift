@@ -10,3 +10,7 @@ extension List {
         }
     }
 }
+
+public func +<Element>(lhs: List<Element>, rhs: List<Element>) -> List<Element> {
+    lhs.append(rhs)
+}
