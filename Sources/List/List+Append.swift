@@ -18,3 +18,7 @@ public func +<Element>(lhs: List<Element>, rhs: List<Element>) -> List<Element> 
 public func +<Element>(lhs: Element, rhs: List<Element>) -> List<Element> {
     List<Element>.nonEmpty(.init(head: lhs, tail: rhs))
 }
+
+public func +<Element>(lhs: List<Element>, rhs: Element) -> List<Element> {
+    lhs + .nonEmpty(.init(head: rhs))
+}
