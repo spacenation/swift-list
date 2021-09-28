@@ -33,3 +33,4 @@ public extension List {
 }
 
 extension List: Equatable where Element: Equatable {}
+extension List: Hashable where Element: Hashable {}
