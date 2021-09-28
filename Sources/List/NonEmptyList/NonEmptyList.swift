@@ -11,3 +11,4 @@ public struct NonEmptyList<Element> {
 }
 
 extension NonEmptyList: Equatable where Element: Equatable {}
+extension NonEmptyList: Hashable where Element: Hashable {}
