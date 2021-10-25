@@ -9,7 +9,7 @@ public extension List {
     @inlinable init() {
         self = .empty
     }
-    
+
     @inlinable init(head: Element, tail: List<Element> = .empty) {
         self = .nonEmpty(.init(head: head, tail: tail))
     }
