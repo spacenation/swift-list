@@ -18,9 +18,4 @@ final class ListReduceTests: XCTestCase {
     func testListFoldRight() {
         XCTAssertEqual(List<Int>([1, 2, 3]).foldRight(0, -), 2)
     }
-
-    static var allTests = [
-        ("testListReduce", testListReduce),
-        ("testEmptyListReduce", testEmptyListReduce)
-    ]
 }

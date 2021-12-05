@@ -1,25 +1,25 @@
 import Foundation
 
 public extension List {
-    func reduce<Result>(_ initialResult: Result, _ fn: (Result, Element) throws -> Result) rethrows -> Result {
-        try foldLeft(initialResult, fn)
+    func reduce<Result>(_ initialResult: Result, _ fn: (Result, Element) -> Result) -> Result {
+        foldLeft(initialResult, fn)
     }
     
-    func foldLeft<Result>(_ initialResult: Result, _ fn: (Result, Element) throws -> Result) rethrows -> Result {
+    func foldLeft<Result>(_ initialResult: Result, _ fn: (Result, Element) -> Result) -> Result {
         switch self {
         case .empty:
             return initialResult
         case let .nonEmpty(list):
-            return try list.tail.foldLeft(fn(initialResult, list.head), fn)
+            return list.tail.foldLeft(fn(initialResult, list.head), fn)
         }
     }
 
-    func foldRight<Result>(_ initialResult: Result, _ fn: (Element, Result) throws -> Result) rethrows -> Result {
+    func foldRight<Result>(_ initialResult: Result, _ fn: (Element, Result) -> Result) -> Result {
         switch self {
         case .empty:
             return initialResult
         case let .nonEmpty(list):
-            return try fn(list.head, list.tail.foldRight(initialResult, fn))
+            return fn(list.head, list.tail.foldRight(initialResult, fn))
         }
     }
 }
