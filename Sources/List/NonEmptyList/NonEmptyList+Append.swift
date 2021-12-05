@@ -1,8 +1,8 @@
 import Foundation
 
-extension NonEmptyList {
-    public func append(_ other: NonEmptyList<Element>) -> NonEmptyList<Element> {
-        .init(head: head, tail: tail)
+extension NonEmptyList {    
+    public func append(_ other: List<Element>) -> NonEmptyList<Element> {
+        .init(head: head, tail: tail + other)
     }
 }
 
